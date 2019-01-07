@@ -52,11 +52,13 @@ plt.title('Kintamojo dažnis')
 plt.show()
 
 #Chi square
-a = data[data.ap == 'a']  #kurie gavo antibiotika
+a = data[data.ap == 'a']
+a = a[a.week == 11]  #kurie gavo antibiotika
 ay = sum(a.y == 'y')      #kiek turejo bakterija ir gavo antibio
 an = sum(a.y == 'n')      # gavo antibiotika, bet neturejo bakterijos
 
-p = data[data.ap == 'p']  
+p = data[data.ap == 'p']
+p = p[p.week == 11]  
 py = sum(p.y == 'y')      
 pn = sum(p.y == 'n')
 
@@ -65,7 +67,5 @@ antibio[0,0] = ay
 antibio[1,0] = py
 
 
-chisquare([93,31], [100,24])
-chisquare([84,12], [77,18])
-chisquare([93,84], [100,77])
-chisquare([31,12], [24,18])
+chisquare([93,31,84,12],[100,24,77,19])
+chisquare([16,8,16,4],[17,7,15,6])
